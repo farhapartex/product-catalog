@@ -6,7 +6,7 @@ from catalog import models
 
 @admin.register(models.Image)
 class ImageAdmin(admin.ModelAdmin):
-    list_display = ("id", "filename", "brand_name", "created_at")
+    list_display = ("id", "directory", "filename", "brand_name", "created_at")
 
 
 @admin.register(models.ImageMetadata)

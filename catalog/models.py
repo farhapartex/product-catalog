@@ -14,6 +14,7 @@ class Image(BaseAbstract):
     original_url = models.URLField(max_length=300)
     brand_name = models.CharField(max_length=255)
     image_type = models.CharField(max_length=100)
+    directory = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return f"{self.id}: {self.filename}"
