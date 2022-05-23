@@ -36,7 +36,7 @@ def store_image(url):
 
     # start process to save image with different sizes
     dir_unique_name = str(uuid.uuid4())
-    image_directory = f"{settings.BASE_DIR}/images/{dir_unique_name}"
+    image_directory = f"{settings.BASE_DIR}/media/images/{dir_unique_name}"
     check_path_exists_or_create(image_directory)
     file_name = f"unsplash-{dir_unique_name}-original.jpg"
     file_path = f"{image_directory}/{file_name}"
@@ -65,7 +65,7 @@ def store_image_data_to_db(file_name, file_path, image_type, img_directory):
     )
 
     image_metadata = {
-        "filename":file_name,
+        "filename": file_name,
         "scrapped_at": timezone.now(),
         "original_height": image.height,
         "original_width": image.width,
@@ -75,7 +75,8 @@ def store_image_data_to_db(file_name, file_path, image_type, img_directory):
         "brightness": stat.mean[0]
     }
 
-    signals.create_image_metadata.send(sender="create_image_metadata", image_id=image_instance.id, metadata=image_metadata)
+    signals.create_image_metadata.send(sender="create_image_metadata", image_id=image_instance.id,
+                                       metadata=image_metadata)
 
 
 def photo_scrapper():

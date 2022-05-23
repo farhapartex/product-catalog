@@ -1,0 +1,8 @@
+SMALL_WIDTH = 256
+MEDIUM_WIDTH = 1024
+LARGE_WIDTH = 2048
+
+
+SMALL_SIZE = "small"
+MEDIUM_SIZE = "medium"
+LARGE_SIZE = "large"
